@@ -38,3 +38,10 @@ todos = [
 @app.get("/Todo", tags=["todos"])
 async def get_todos() -> dict:
     return { "data": todos }
+#router AddTodo
+@app.post("/todo", tags=["todos"])
+async def add_todo(todo: dict) -> dict:
+    todos.append(todo)
+    return {
+        "data": { "Todo added." }
+    }
